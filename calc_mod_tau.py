@@ -15,7 +15,6 @@ base_dir = os.path.dirname(os.path.abspath(__file__))
 data_tissue_path = os.path.join(base_dir, 'Data_Files', data_tissue_name)
 
 # Create the Xi matrix
-# Xi_matrix, gene_names = create_Xi(data_tissue_path)
 if yotau:
     tau_name = "Yotau"
 else:

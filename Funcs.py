@@ -24,8 +24,12 @@ def second_order_tau(X: np.array, C: np.array):
     :param C: Matrix of distances. Can be correlation matrix or other.
     :return: Second order tau score
     """
-    N = len(X)
-    return X @ C @ X / ((N - 1) ** 2)
+    # return X @ C @ X
+    norm = np.dot(X, X)
+    if norm == 0:
+        return 0
+    else:
+        return X @ C @ X / norm
 
 
 def create_expression_matrix(file_path, row_key: str, column_key: str, ):

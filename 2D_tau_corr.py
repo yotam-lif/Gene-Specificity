@@ -46,7 +46,7 @@ heatmap_data, xedges, yedges = np.histogram2d(tau_list, tau2_list, bins=nbins, r
 
 # Plot the heatmap
 plt.figure(figsize=(10, 8))
-sns.heatmap(heatmap_data, cmap="viridis", cbar=True)
+sns.heatmap(heatmap_data.T, cmap="viridis", cbar=True)
 
 # Adjusting the ticks to ensure (0,0) is at the bottom left corner
 ticks = np.linspace(0, 1, num=nbins + 1)

@@ -32,7 +32,7 @@ def second_order_tau(X: np.array, C: np.array):
         return X @ C @ X / norm
 
 
-def create_expression_matrix(file_path, row_key: str, column_key: str, ):
+def create_expression_matrix(file_path, row_key: str, column_key: str, log_transform=True):
     """
     Create an expression matrix from a file
     :param file_path: Path to the data file
@@ -50,7 +50,8 @@ def create_expression_matrix(file_path, row_key: str, column_key: str, ):
 
     # Convert nTPM values to log10(x+1)
     Xi = pivot_data.values
-    Xi = np.log10(Xi + 1)
+    if log_transform:
+        Xi = np.log10(Xi + 1)
 
     # Normalize each row by the maximum value in that row, avoiding division by zero
     max_values = Xi.max(axis=1, keepdims=True)
